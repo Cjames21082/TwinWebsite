@@ -1,0 +1,57 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style2.css'%}">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    
+
+    
+<div class="pure-g-r">
+    <div class="pure-u-1-3 photo-box">
+        <img src="{% static 'polls/images/baby.jpg' %}" width="300" height="300">
+        <br>
+        <button onclick="whoAmI('baby1', 1)" id="response1"> I am... </button>
+    </div>
+
+    <div class="pure-u-2-3 text-box">
+        <div class="l-box">
+            <h1 class="text-box-head">Seeing Double: Dylan & Tristan</h1>
+            <a href="{% url 'admin:index' %}"> Admin Tools </a>
+            <br>
+            <a href="{% url 'polls:index' %}"> Pop Questions </a>        
+        </div>
+    </div>
+
+    <div class="pure-u-1-3 photo-box">
+        <img src="{% static 'polls/images/baby2.jpg' %}">
+        <br>
+        <button onclick="whoAmI('baby2', 2)" id="response2"> I am... </button>        
+    </div>
+
+    <div class="pure-u-1-3 photo-box">
+        <img src="{% static 'polls/images/baby3.jpg' %}">
+        <br>
+        <button onclick="whoAmI('baby1', 3)" id="response3"> I am... </button>
+    </div>
+
+    <div class="pure-u-1-3 photo-box">
+        <img src="{% static 'polls/images/twins.jpg' %}">
+        <br>
+        <button onclick="whoAmI('baby1', 4)" id="response4"> On the right, I am... </button>
+    </div>
+
+    <div class="pure-u-2-3 photo-box">
+       <img src="{% static 'polls/images/twins2.jpg' %}" width="500" height="500">
+        <br>
+        <button onclick="whoAmI('baby1', 5)" id="response5"> On the left, I am... </button>
+    </div>
+
+    <div class="pure-u-1-3 photo-box">
+        <img src="{% static 'polls/images/twins3.jpg' %}">
+        <br>
+        <button onclick="whoAmI('baby2',6)" id="response6"> On the left, I am... </button>
+    </div>
+        
+<script type="text/javascript"
+        src='{% static "polls/script.js" %}'></script>
+
+

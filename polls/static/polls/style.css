@@ -1,0 +1,9 @@
+li a, label, li, a, h1{
+	color: white;
+	font-weight: 4px;
+	font-size: large;
+}
+
+body {
+	background: white url('images/stars.jpeg')
+}

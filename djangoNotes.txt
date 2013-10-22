@@ -1,0 +1,129 @@
+Version Check
+=============
+You can tell Django is installed and which version by running the following command:
+python -c "import django; print(django.get_version())"
+
+Creating a Project
+==================
+
+django-admin.py startproject [projectname]
+
+result:
+[projectname]/
+    manage.py
+    [projectname]/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+
+
+These files are:
+
+* 	The outer [projectname]/ root directory is just a container for your project. 		Its name doesn’t matter to Django; you can rename it to anything you 
+	like.
+*	manage.py: A command-line utility that lets you interact with this 			Django project in various ways. You can read all the details about 
+	manage.py in django-admin.py and manage.py.
+*	The inner mysite/ directory is the actual Python package for your 	
+	project. Its name is the Python package name you’ll need to use to import anything inside it (e.g. mysite.urls).
+* 	mysite/__init__.py: An empty file that tells Python that this directory
+	should be considered a Python package. (Read more about packages in the official Python docs if you’re a Python beginner.)
+* 	mysite/settings.py: Settings/configuration for this Django project. 
+	Django settings will tell you all about how settings work.
+* 	mysite/urls.py: The URL declarations for this Django project; a “table
+	of contents” of your Django-powered site. You can read more about URLs in URL dispatcher.
+* 	mysite/wsgi.py: An entry-point for WSGI-compatible web servers to serve 
+	your project. See How to deploy with WSGI for more details.
+
+Django development server
+=========================
+
+http://127.0.0.1:8000/ 
+
+Database Setup (settings.py)
+==============
+Set db.setting to postgres
+* update  engine to postgres
+* create database and update database name
+* set host to localhost
+* leave all other fields blank
+change time-zone
+
+Create an App
+=============
+
+Projects vs. apps
+What’s the difference between a project and an app? An app is a Web application that does something – e.g., a Weblog system, a database of public records or a simple poll app. A project is a collection of configuration and apps for a particular Web site. A project can contain multiple apps. An app can be in multiple projects.
+
+make sure you’re in the same directory as manage.py and type this command:
+$ python manage.py [appname] polls
+
+* Edit models.py
+* Update settings.py to add app to 'Installed apps'
+* to view schema: python manage.py sql polls
+* to create model table in database: python manage.py syncdb
+
+Activate admin site
+===================
+
+1) Uncomment "django.contrib.admin" in the INSTALLED_APPS setting.
+
+2) Run python manage.py syncdb. Since you have added a new application to INSTALLED_APPS, the database tables need to be updated.
+
+3) Edit your mysite/urls.py file and uncomment the lines that reference the admin – there are three lines in total to uncomment.
+
+4) active apps and modify setting in admin.py under [appname] directory
+
+
+Customize templates (settings.py)
+===================
+
+TEMPLATE_DIRS = (
+    '/path/to/mysite/templates', # Change this to your own directory.
+)
+
+To locate admin/base_site.html:
+python -c "
+import sys
+sys.path = sys.path[1:]
+import django
+print(django.__path__)"
+
+* cp admin/base_site.html to templates folder
+* cp admin/index.html to templates folder
+
+
+Views:
+=======
+
+The url() function is passed four arguments, 
+two required: regex and view, and 
+two optional: kwargs, and name. 
+
+A view is a “type” of Web page in your 
+Django application that generally serves a specific 
+function and has a specific template.
+
+In our poll application, we’ll have the following four views:
+
+Poll “index” page – displays the latest few polls.
+Poll “detail” page – displays a poll question, with no results but with a form to vote.
+Poll “results” page – displays results for a particular poll.
+Vote action – handles voting for a particular choice in a particular poll.
+
+Generic Views
+=============
+Generic views abstract common patterns to the point where you don’t even need to write Python code to write an app.
+
+Let’s convert our poll app to use the generic views system, so we can delete a bunch of our own code. We’ll just have to take a few steps to make the conversion. We will:
+
+Convert the URLconf.
+Delete some of the old, unneeded views.
+Introduce new views based on Django’s generic views.
+
+Testing
+==========
+
+running python interactive shell (python manage.py shell)
+
+
