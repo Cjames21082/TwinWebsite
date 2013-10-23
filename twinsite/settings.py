@@ -17,7 +17,7 @@ DATABASES = {
         'USER':'',
         'PASSWORD':'',
         'HOST':'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT':'9724',                      # Set to empty string for default.
+        'PORT':'',                      # Set to empty string for default.
     }
 }
 
@@ -118,7 +118,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
+    # 'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
