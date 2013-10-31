@@ -23,7 +23,7 @@
 <body>
 <!-- NAVBAR
 ================================================== -->
-    <div>
+
       <div class="container">
 
         <div id="navbar" class="navbar-base navbar-static-top">
@@ -42,11 +42,9 @@
                 </button></a>
               </p>
         {% block navbar %}       
-            
-              
-           </div>
+          </div>
         {% endblock %}
-        </div> <!--End navbar-->
+          </div><!--End navbar-->
 
       
     
@@ -55,11 +53,8 @@
     ================================================== -->
     <div id="carousel" class="carousel slide" data-ride="carousel">
       {% block carousel %}{% endblock %}
-    </div>
-    <!-- /.carousel -->
+    </div><!-- /.carousel -->
     </div> <!--container-->
-   </div>
-
 
     <br><br>
     <!-- featurettes
@@ -69,8 +64,7 @@
     {% block options %}{% endblock %}
        </div><!-- /.row -->
 
-
-      <div id="featurette" class="row featurette">
+      <hr id= "featurette" class="featurette-divider">
       {% block featurette %} {% endblock %}
      
 
@@ -80,16 +74,20 @@
     <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; Dixon-James Family </p>
+        <p> &copy; Dixon-James Family </p>
       </footer>
 
     </div><!-- /.container -->
 
-    <script type="text/javascript"
-      src="{% static 'polls/js/script.js' %}"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{%static 'polls/js/bootstrap.min.js'%}"></script>
+
+
+<!---js Links-->
+<script type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'polls/js/script.js' %}"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- Include al compiled plugins (below), or include individual files as needed -->
+<script src="{%static 'polls/js/bootstrap.min.js'%}"></script>
 </body>
+</html>
 
