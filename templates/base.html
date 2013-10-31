@@ -31,17 +31,36 @@
           <div class="container">
               <p class="text-center">Welcome to Twinsville!
               
-              <a class="pull-right" href="{% url 'admin:index' %}">
+              <a class="pull-left" href="{% url 'admin:index' %}">
                 <button type="button" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-edit"></span> Admin Login
                 </button></a>
 
-              <a class="pull-right" href="{% url 'home' %}">
+              <a class="pull-left" href="{% url 'home' %}">
                 <button type="button" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-home"></span> Home
                 </button></a>
-              </p>
-        {% block navbar %}       
+
+              <a class="pull-right" href="{% url 'polls:index' %}">
+              <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-heart"></span> Dashboard
+              </button></a>
+
+              <a class="pull-right" href="{% url 'polls:index' %}">
+              <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-book"></span> Blog
+              </button></a>
+
+              <a class="pull-right" href="{% url 'polls:index' %}">
+              <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-picture"></span> Gallery
+              </button></a>
+              
+
+
+              
+        {% block navbar %}
+              </p>       
           </div>
         {% endblock %}
           </div><!--End navbar-->
@@ -82,7 +101,7 @@
 
 
 <!---js Links-->
-<script type="text/javascript"></script>
+
 <script type="text/javascript" src="{% static 'polls/js/script.js' %}"></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="//code.jquery.com/jquery.js"></script>

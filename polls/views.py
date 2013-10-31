@@ -12,7 +12,7 @@ def home(request):
 	return render(request, 'home.html')
 
 def guess(request):
-	return render(request, 'polls/whoamI.html')
+	return render(request, 'polls/guess.html')
 
 # Original version
 # def index(request):

@@ -1,28 +1,70 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css'%}">
+{% block title %} Question {% endblock %}
 
-<a href="{% url 'home' %}"> Home </a>
-<br/>
+{% block carousel %}
+<!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+      </ol>
+      
+      <div class="carousel-inner">
+         <div class="item active">
+          <img class="carousel-img" src="{% static 'polls/images/sleepytwins.jpg'%}" 
+          			alt="First slide"> 
+          </div>
+         <div class="item">
+          <img  class="carousel-img" src="{% static 'polls/images/sleepyt2.jpg'%}"
+           			alt="Second slide">
+         </div>
+         <div class="item">
+          <img class="carousel-img" src="{% static 'polls/images/sleepyd2.jpg'%}" 
+          			alt="Third slide">       
+         </div>
+      </div>
+   
 
-<h1> {{question.question_text}} </h1>
+      <a class="left carousel-control" href="#carousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#carousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span></a>
+    {% endblock %}
 
-{% if error_message %}
-<p><strong> {{error_message}} </strong></p>	
-{% endif %}
 
-<form action = "{% url 'polls:vote' question.id %}" method = "post"> 
-{% csrf_token %}
+{%block featurette%}
+<div id="featurette" class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{question.question_text}}</h2>
 
-{% for choice in question.choice_set.all %}
-	<input type = 'radio' name = 'choice' 
-		   id = 'choice {{forloop.counter}}'
-		   value ='{{choice.id}}' />
-	<label for = 'choice {{forloop.counter}}'> {{choice.choice_text}} </label>
-	<br/>
+        {% if error_message %}
+		<p><strong> {{error_message}} </strong></p>	
+		{% endif %}
 
-{% endfor %}
-<br/>
+		<form class="well" action = "{% url 'polls:vote' question.id %}" method = "post"> 
+		{% csrf_token %}
 
-<input type = 'submit' value = 'Vote' />
-</form>
+		{% for choice in question.choice_set.all %}
+			<input type = 'radio' name = 'choice' 
+				   id = 'choice {{forloop.counter}}'
+				   value ='{{choice.id}}' />
+			<label for = 'choice {{forloop.counter}}'> {{choice.choice_text}} </label>
+			<br/>
+
+		{% endfor %}
+		<br/>
+
+		<input type = 'submit' value = 'Vote' />
+		</form>
+        </div>
+        <div class="col-md-5">
+          <img id="babyAsleep" src="{% static 'polls/images/sleepytristan.jpg' %}"
+               class="featurette-image img-responsive" 
+               alt="Baby Asleep">
+        </div>
+      </div>
+{% endblock %}
+
+

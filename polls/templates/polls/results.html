@@ -1,18 +1,24 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css'%}">
+{% block title %} Result {% endblock %}
 
-<a href="{% url 'home' %}"> Home </a>
-<br/>
+{% block featurette %}
+ <div id="featurette" class="row featurette">
+    <div class="col-md-3"></div>
 
-<h1> {{question.question_text }} </h1>
+    <div class="col-md-6">
+        <h2 class="featurette-heading">Results: {{question.question_text }} </h2>
 
-<div class="center">
-	<ul>
-	{% for choice in question.choice_set.all %}
-		<li class> {{choice.choice_text}} : {{choice.votes}} vote{{choice.votes |pluralize }} </li>
-	{% endfor %}
-	</ul>
-</div>	
-
-<a href = '{% url 'polls:details' question.id %}'> Vote Again? </a>
+        <div class="well">
+		<ul>
+		{% for choice in question.choice_set.all %}
+			<li class> {{choice.choice_text}} : {{choice.votes}} vote{{choice.votes |pluralize }} </li>
+		{% endfor %}
+		</ul>	
+		<a href = "{% url 'polls:details' question.id %}"> Vote Again? </a>
+		</div>
+     </div>
+     <div class="col-md-3"></div>
+</div>
+{% endblock %}

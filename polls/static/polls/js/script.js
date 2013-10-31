@@ -13,6 +13,3 @@ function whoAmI(picture, number){
     };
 
 
-$('.carousel').carousel({
-  interval: 2000
-})
