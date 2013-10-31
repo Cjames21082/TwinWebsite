@@ -1,0 +1,35 @@
+body, h1, h2{
+  font-family: 'Belleza', sans-serif;
+}
+
+li{
+  list-style-type: none;
+}
+
+.navbar-base {
+  position: relative;
+  z-index: 1000;
+  min-height: 20px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  background-color: #c0c0c0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+p{
+  font-size: 15px;
+}
+
+.move-up{
+  padding-top: 200px;
+}
+.carousel-img{
+  padding-left: 400px;
+  width: 800px;
+  height: 800px;
+}
+
+.carousel{
+  background-color: #00cccc;
+}

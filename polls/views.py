@@ -11,6 +11,8 @@ from polls.models import Question, Choice
 def home(request):
 	return render(request, 'home.html')
 
+def guess(request):
+	return render(request, 'polls/whoamI.html')
 
 # Original version
 # def index(request):

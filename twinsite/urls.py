@@ -7,6 +7,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'polls.views.home', name='home'),
+     url(r'^polls/guess', 'polls.views.guess', name='guess'),
+
     #url(r'^twinsite/', include('twinsite.foo.urls')),
     url(r'^polls/', include('polls.urls', namespace = 'polls')),
 

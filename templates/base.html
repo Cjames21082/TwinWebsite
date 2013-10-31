@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title%} Base {% endblock %}</title>
+
+{% load staticfiles %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Custom styles for this template -->
+  <link href="{% static 'polls/css/bootstrap.min.css'%}" rel="stylesheet" media="screen">
+  <link href="{% static 'polls/css/base.css'%}" rel="stylesheet">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+
+  <!--Font-->
+  <link href='http://fonts.googleapis.com/css?family=Belleza' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+<!-- NAVBAR
+================================================== -->
+    <div>
+      <div class="container">
+
+        <div id="navbar" class="navbar-base navbar-static-top">
+        
+          <div class="container">
+              <p class="text-center">Welcome to Twinsville!
+              
+              <a class="pull-right" href="{% url 'admin:index' %}">
+                <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-edit"></span> Admin Login
+                </button></a>
+
+              <a class="pull-right" href="{% url 'home' %}">
+                <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-home"></span> Home
+                </button></a>
+              </p>
+        {% block navbar %}       
+            
+              
+           </div>
+        {% endblock %}
+        </div> <!--End navbar-->
+
+      
+    
+   
+    <!-- Carousel
+    ================================================== -->
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+      {% block carousel %}{% endblock %}
+    </div>
+    <!-- /.carousel -->
+    </div> <!--container-->
+   </div>
+
+
+    <br><br>
+    <!-- featurettes
+    ================================================== -->
+    <div id="options" class="container marketing">
+      <div class="row">
+    {% block options %}{% endblock %}
+       </div><!-- /.row -->
+
+
+      <div id="featurette" class="row featurette">
+      {% block featurette %} {% endblock %}
+
+    
+
+    <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; Dixon-James Family </p>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <script type="text/javascript"
+      src="{% static 'polls/js/script.js' %}"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{%static 'polls/js/bootstrap.min.js'%}"></script>
+</body>

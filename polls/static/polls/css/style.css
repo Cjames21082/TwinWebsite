@@ -1,0 +1,15 @@
+li a, label, li, a, h1{
+	color: black;
+	font-weight: 4px;
+	font-size: large;
+}
+
+body {
+	background:url('images/green.jpeg') no-repeat;
+	background-size: 100% 100%; 
+}
+
+button{
+	background-color: transparent;
+	color: black;
+}
